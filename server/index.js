@@ -65,8 +65,8 @@ bot.on('inline_query', async (ctx) => {
   if(LOCAL){
     // start ngrok
     url = await ngrok.connect(PORT);
-    console.log('live in',url,true);
   }
+  console.log('live in',url);
 
     // launch bot at that url
     bot.launch({
