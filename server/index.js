@@ -2,6 +2,8 @@ require("dotenv").config();
 // const PUBLIC_URL = process.env.APP_URL || "https://trashrbot.onrender.com";
 const BOT_TOKEN = process.env.TOKEN;
 const PORT = process.env.PORT;
+const LOCAL = process.env.LOCAL
+const DEPLOY_URL = process.env.DEPLOY_URL
 
 const  {Telegraf, Markup} = require('telegraf');
 const {message} = require('telegraf/filters')
@@ -59,9 +61,12 @@ bot.on('inline_query', async (ctx) => {
 
 
 (async function() {
+  let url = DEPLOY_URL;
+  if(LOCAL){
     // start ngrok
-    const url = await ngrok.connect(PORT);
+    url = await ngrok.connect(PORT);
     console.log('live in',url,true);
+  }
 
     // launch bot at that url
     bot.launch({
