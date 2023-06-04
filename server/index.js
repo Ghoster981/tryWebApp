@@ -30,7 +30,7 @@ console.log(ctx);
   return await ctx.reply(
     "Let's get started 🤌🏻 \n",
 		Markup.inlineKeyboard([
-			Markup.button.webApp('hello i am a webapp','https://www.google.com')
+			Markup.button.webApp('hello i am a webapp','https://ghoster981.github.io/tryWebApp/')
 		]),
 );
 });
